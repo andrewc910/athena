@@ -9,6 +9,16 @@ class HTTP::Request
 
   @request_data : HTTP::Params?
 
+  @format : String? = nil
+
+  def format(default : String = "json") : String
+    if @format.nil?
+      @format = self.attributes.get? "_format", String
+    end
+
+    @format || default
+  end
+
   def request_data
     @request_data ||= self.parse_request_data
   end
