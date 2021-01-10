@@ -6,10 +6,15 @@ require "./cors_config"
 struct Athena::Routing::Config
   include ACF::Configuration
 
-  # Configuration related to `Athena::Routing::Listeners::CORS`.
+  # Configuration related to `ART::Listeners::CORS`.
   #
   # Disables the listener if not defined.
   getter cors : ART::Config::CORS? = nil
+
+  # Configuration related to `ART::Listeners::Format`.
+  #
+  # Disables the listener if not defined.
+  getter content_negotiation : ART::Config::ContentNegotiation? = nil
 end
 
 struct Athena::Config::Base

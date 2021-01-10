@@ -26,6 +26,10 @@ class HTTP::Request
 
   setter request_format : String? = nil
 
+  def mime_type(format : String) : String?
+    self.class.mime_types(format).first?
+  end
+
   def format(mime_type : String) : String?
     canonical_mime_type = nil
 
